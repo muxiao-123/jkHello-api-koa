@@ -22,7 +22,7 @@ module.exports = {
         printWidth: 80,
         tabWidth: 2,
         quoteProps: 'as-needed',
-        // trailingComma: 'none',
+        trailingComma: 'all',
         arrowParens: 'always',
       },
     ],
