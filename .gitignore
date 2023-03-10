@@ -1,1 +1,9 @@
 node_modules
+client
+mongo_test
+test
+dist
+.env
+.env.dev
+.env.prod
+static

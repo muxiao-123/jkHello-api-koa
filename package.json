@@ -7,11 +7,19 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .js",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "dev": "node src/index.js",
+    "watch": "cross-env JKENV=dev webpack watch",
+    "build:test": "cross-env JKENV=test webpack",
+    "build:dev": "cross-env JKENV=dev webpack",
+    "build": "cross-env JKENV=prod webpack",
+    "preview": "node dist/main.js"
   },
   "eslintIgnore": [
     ".gitignore",
-    "public/*"
+    "mongo_test/*",
+    "node_modules/*",
+    "dist"
   ],
   "lint-staged": {
     "*.js": [
@@ -25,13 +33,42 @@
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
+    "@rushstack/eslint-patch": "^1.2.0",
     "@types/node": "^18.14.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.34.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.3",
-    "lint-staged": "^13.1.2"
+    "lint-staged": "^13.1.2",
+    "webpack": "^5.76.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "dependencies": {
+    "@koa/cors": "^4.0.0",
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3",
+    "dotenv-webpack": "^8.0.1",
+    "formidable": "^2.1.1",
+    "geoip-lite": "^1.4.7",
+    "jsonwebtoken": "^9.0.0",
+    "koa": "^2.14.1",
+    "koa-bodyparser": "^4.3.0",
+    "koa-compress": "^5.1.0",
+    "koa-convert": "^2.0.0",
+    "koa-formidable": "^1.1.0",
+    "koa-helmet": "^6.1.0",
+    "koa-jwt": "^4.0.4",
+    "koa-logger": "^3.2.1",
+    "koa-router": "^12.0.0",
+    "koa-session": "^6.4.0",
+    "koa-static": "^5.0.0",
+    "mongoose": "^5.13.15",
+    "node-machine-id": "^1.1.12",
+    "nodemailer": "^6.9.1",
+    "request-ip": "^3.3.0"
   }
 }
